@@ -1,0 +1,7 @@
+include ../icons/icon-tooltip-arrow.pug
+
+mixin tooltip({text, arrow, className})
+    span.tooltip.tooltip_left.js-tooltip(class=className)
+        = text
+        if arrow
+            +icon-tooltip-arrow('tooltip__arrow')

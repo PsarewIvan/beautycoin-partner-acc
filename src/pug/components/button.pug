@@ -1,0 +1,4 @@
+mixin button({text, theme='primary', className='', disabled=false})
+    - var classes = theme + ' ' + className;
+    button.button(type="button" disabled=disabled class=classes)
+        = text

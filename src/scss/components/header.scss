@@ -1,0 +1,111 @@
+@use '../vars.scss';
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    height: 84px;
+    display: flex;
+    align-items: center;
+    background-color: vars.$background-primary;
+
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 24px;
+
+        @include vars.mobile {
+            padding: 0 16px;
+        }
+    }
+
+    &__logo {
+        width: 241px;
+        height: 40px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__button {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+    }
+
+    &__button-icon {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+.nav {
+    display: flex;
+    margin-left: 64px;
+    margin-right: auto;
+
+    @include vars.tablet {
+        display: none;
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: nowrap;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 12px;
+    }
+}
+
+.nav-element {
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+        gap: 8px;
+        height: 52px;
+        padding: 0 12px;
+        border-radius: 2px;
+        text-decoration: none;
+        font-family: vars.$second-font;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 28px;
+        color: vars.$text-primary;
+        transition: background-color 0.2s;
+
+        &_active {
+            background-color: vars.$darkner-8;
+        }
+
+        &:hover:not(.nav-element__link_active) {
+            background-color: vars.$darkner-4;
+            color: vars.$accent-500;
+        }
+
+        &:active:not(.nav-element__link_active) {
+            background-color: vars.$accent-700;
+            color: vars.$text-primary-invert;
+
+            .nav-element__icon {
+                color: vars.$text-primary-invert;
+            }
+        }
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        color: vars.$text-secondary;
+    }
+}

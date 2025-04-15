@@ -1,0 +1,58 @@
+@use '../vars.scss';
+
+.pagination {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 4px;
+    margin-left: auto;
+    margin-right: auto;
+
+    &__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border: none;
+        border-radius: 2px;
+        border: 2px solid transparent;
+        background-color: transparent;
+        width: 48px;
+        height: 48px;
+        cursor: pointer;
+        color: vars.$link-600;
+        text-align: center;
+        font-size: 16px;
+        line-height: 24px;
+        transition: all 0.2s;
+
+        &:hover:not(.pagination__button_disabled, .pagination__button_active) {
+            border-color: vars.$link-500;
+        }
+
+        &_active {
+            color: vars.$text-primary;
+            background-color: vars.$darkner-8;
+        }
+
+        &_disabled {
+            opacity: 0.48;
+            cursor: default;
+        }
+    }
+
+    &__icon {
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+
+        &_right {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__button_desktop {
+        @include vars.mobile {
+            display: none;
+        }
+    }
+}

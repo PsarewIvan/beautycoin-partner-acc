@@ -1,0 +1,20 @@
+block footer
+    include ../icons/icon-coin.pug
+    include ../icons/icon-user.pug
+    include ../icons/icon-list.pug
+    include ../icons/icon-arrow-right.pug
+
+    footer.footer
+        ul.footer__nav-list
+            li.footer-nav-element(class=page === 'index' ? 'footer-nav-element_active' : '')
+                a.footer-nav-element__link(href='./' class=page === 'index' ? 'footer-nav-element__link_active' : '')
+                    +icon-list('footer-nav-element__icon')
+                    span Клиенты
+            li.footer-nav-element(class=page === 'write-off' ? 'footer-nav-element_active' : '')
+                a.footer-nav-element__link(href='./write-off.html' class=page === 'write-off' ? 'footer-nav-element__link_active' : '')
+                    +icon-arrow-right('footer-nav-element__icon')
+                    span Списания
+            li.footer-nav-element(class=page === 'profile' ? 'footer-nav-element_active' : '')
+                a.footer-nav-element__link(href='./profile.html' class=page === 'profile' ? 'footer-nav-element__link_active' : '')
+                    +icon-user('footer-nav-element__icon')
+                    span Профиль

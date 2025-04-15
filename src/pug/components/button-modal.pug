@@ -1,0 +1,6 @@
+include ../icons/icon-question.pug
+
+mixin button-modal({text, className=''})
+    button.button-modal(type="button" class=className)
+        +icon-question('button-modal__icon')
+        span.button-modal__text= text

@@ -1,0 +1,143 @@
+@use '../vars.scss';
+
+.text-input {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &__label {
+        margin-bottom: 4px;
+        margin-left: 2px;
+        font-size: 14px;
+        line-height: 20px;
+        color: vars.$text-secondary;
+    }
+
+    &__input {
+        min-height: 48px;
+        padding: 10px 34px 10px 16px;
+        border-radius: 4px;
+        border: 2px solid vars.$darkner-16;
+        background-color: vars.$background-primary;
+        color: inherit;
+        font-family: inherit;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        transition: all 0.2s;
+
+        &::placeholder {
+            color: vars.$text-third;
+        }
+
+        &:hover {
+            border-color: vars.$darkner-24;
+        }
+
+        &:focus {
+            outline: none;
+            border-color: vars.$link-300;
+        }
+
+        &:disabled {
+            border-color: vars.$darkner-8;
+            background-color: vars.$darkner-8;
+        }
+
+        &.error {
+            border-color: vars.$error-500;
+        }
+
+        &_force-alert {
+            border-color: vars.$error-500;
+        }
+    }
+
+    &__input-wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__reset {
+        display: none;
+
+        &.active {
+            display: flex;
+        }
+    }
+
+    &__show {
+        display: flex;
+
+        &.shift {
+            right: 40px;
+        }
+    }
+
+    &__reset,
+    &__show {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 12px;
+        width: 24px;
+        height: 24px;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        &:hover {
+            svg {
+                color: vars.$text-primary;
+            }
+        }
+
+        &.active {
+            display: flex;
+        }
+    }
+
+    &__icon {
+        color: vars.$text-primary;
+        transition: all 0.2s;
+    }
+
+    &__alert {
+        display: none;
+        margin-top: 4px;
+        margin-left: 2px;
+        color: vars.$error-500;
+        font-size: 14px;
+        line-height: 20px;
+
+        &.active {
+            display: block;
+        }
+    }
+
+    &__addon {
+        margin-top: 4px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    &__sub-text {
+        margin-top: 4px;
+        margin-left: 2px;
+        color: vars.$text-primary-invert;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    &__force-alert {
+        margin-top: 4px;
+        margin-left: 2px;
+        color: vars.$error-500;
+        font-size: 14px;
+        line-height: 20px;
+    }
+}

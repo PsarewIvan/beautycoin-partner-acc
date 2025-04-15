@@ -1,0 +1,96 @@
+@use '../vars.scss';
+
+.popup-support {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.48);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    &__box {
+        overflow: auto;
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        padding: 24px;
+        background-color: vars.$background-primary;
+        width: 480px;
+
+        @include vars.mobile {
+            width: 100%;
+            padding: 24px 16px;
+        }
+    }
+
+    &__header {
+        display: flex;
+        gap: 48px;
+    }
+
+    &__button-close {
+        flex-shrink: 0;
+        margin-left: auto;
+        width: 40px;
+        height: 40px;
+    }
+
+    &__icon-close {
+        width: 24px;
+        height: 24px;
+        color: vars.$text-primary;
+    }
+
+    &__title {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    &__title-text {
+        font-family: vars.$second-font;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 32px;
+        letter-spacing: -0.48px;
+    }
+
+    &__title-content {
+        font-size: 16px;
+        line-height: 24px;
+
+        a {
+            text-decoration: none;
+            color: vars.$link-500;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__controls {
+        display: flex;
+        gap: 8px;
+        margin-top: 16px;
+    }
+
+    &__text {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}

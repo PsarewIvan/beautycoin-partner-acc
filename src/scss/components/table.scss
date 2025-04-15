@@ -1,0 +1,234 @@
+@use '../vars.scss';
+
+.table {
+    display: grid;
+
+    &__head {
+        display: contents;
+
+        .table-cell-h:nth-child(1) {
+            padding-left: 0;
+        }
+
+        @include vars.mobile {
+            display: none;
+            visibility: hidden;
+        }
+    }
+
+    &__cell-h {
+        display: flex;
+        align-items: center;
+        padding: 16px 8px 14px;
+        border-bottom: 2px solid vars.$darkner-16;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+
+        &_right {
+            justify-content: flex-end;
+        }
+    }
+
+    &__row {
+        display: contents;
+        padding: 16px 0;
+
+        @include vars.mobile {
+            display: grid;
+            gap: 4px;
+            border-bottom: 1px solid vars.$darkner-16;
+        }
+    }
+
+    &__cell {
+        display: flex;
+        align-items: flex-start;
+        border-bottom: 1px solid vars.$darkner-16;
+        padding: 24px 8px 23px;
+        font-size: 16px;
+        line-height: 24px;
+
+        @include vars.mobile {
+            gap: 4px;
+            border-bottom: none;
+            padding: 0;
+        }
+
+        &_right {
+            justify-content: flex-end;
+        }
+
+        &_compact {
+            padding: 16px 8px 15px;
+
+            @include vars.mobile {
+                padding: 0;
+            }
+        }
+    }
+
+    &__partner {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 8px;
+
+        img {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        color: vars.$link-500;
+    }
+
+    &__mobile-content {
+        display: none;
+
+        @include vars.mobile {
+            display: inline;
+        }
+    }
+
+    &__sum {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+    }
+
+    &__sum-icon {
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+    }
+
+    &.table_index {
+        grid-template-columns: 200fr 688fr 144fr 120fr;
+
+        @include vars.tablet {
+            grid-template-columns: 200fr 256fr 144fr 120fr;
+        }
+
+        @include vars.mobile {
+            grid-template-columns: 1fr;
+        }
+
+        .table__row {
+            @include vars.mobile {
+                grid-template-columns: max-content 1fr;
+                grid-template-areas:
+                    'partner partner'
+                    'id date'
+                    'link link';
+            }
+        }
+
+        .table__cell {
+            &:nth-child(1) {
+                padding-left: 0;
+
+                @include vars.mobile {
+                    grid-area: id;
+                    margin-bottom: 4px;
+                    font-size: 14px;
+                    line-height: 20px;
+                }
+            }
+
+            &:nth-child(2) {
+                @include vars.mobile {
+                    grid-area: partner;
+                }
+            }
+
+            &:nth-child(3) {
+                @include vars.mobile {
+                    grid-area: date;
+                    margin-bottom: 4px;
+                    font-size: 14px;
+                    line-height: 20px;
+                }
+            }
+
+            &:nth-child(4) {
+                @include vars.mobile {
+                    grid-area: link;
+                }
+            }
+        }
+    }
+
+    &.table_write-off {
+        grid-template-columns: 144fr 200fr 348fr 112fr 348fr;
+
+        @include vars.tablet {
+            width: 100vw;
+            padding: 0 24px;
+            margin-left: -24px;
+            overflow: auto;
+            grid-template-columns: 144px 200px 240px 112px 240px;
+        }
+
+        @include vars.mobile {
+            width: auto;
+            padding: 0;
+            margin-left: 0;
+            grid-template-columns: 1fr;
+        }
+
+        .table__row {
+            @include vars.mobile {
+                grid-template-columns: 1fr max-content;
+                grid-template-areas:
+                    'partner coin'
+                    'id date'
+                    'description description';
+            }
+        }
+
+        .table__cell {
+            &:nth-child(1) {
+                padding-left: 0;
+
+                @include vars.mobile {
+                    grid-area: date;
+                }
+            }
+
+            &:nth-child(2) {
+                @include vars.mobile {
+                    grid-area: id;
+                }
+            }
+
+            &:nth-child(3) {
+                @include vars.mobile {
+                    grid-area: partner;
+                    margin-bottom: 4px;
+                }
+            }
+
+            &:nth-child(4) {
+                @include vars.mobile {
+                    grid-area: coin;
+                    align-self: center;
+                    margin-bottom: 4px;
+                }
+            }
+
+            &:nth-child(5) {
+                @include vars.mobile {
+                    grid-area: description;
+                }
+            }
+        }
+    }
+}

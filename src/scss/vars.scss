@@ -1,0 +1,66 @@
+$desktop: 'screen and (max-width: 1240px)';
+$onlysmalldesktop: 'screen and (min-width: 1025px) and (max-width: 1149px)';
+$tablet: 'screen and (max-width: 1024px)';
+$phone: 'screen and (max-width: 767px)';
+$smallphone: 'screen and (max-width: 340px)';
+
+@mixin tablet {
+    @media (max-width: 1199px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: 767px) {
+        @content;
+    }
+}
+
+$main-font: 'Inter', 'Helvetica', sans-serif;
+$second-font: 'Montserrat', 'Helvetica', sans-serif;
+
+$background-primary: rgba(255, 255, 255, 1);
+$background-secondary: #f9f1f0;
+$darkner-4: rgba(0, 0, 0, 0.04);
+$darkner-8: rgba(0, 0, 0, 0.08);
+$darkner-16: rgba(0, 0, 0, 0.16);
+$darkner-24: rgba(0, 0, 0, 0.24);
+$accent-50: #ffefe6;
+$accent-100: #ffdfcc;
+$accent-300: #e89bba;
+$accent-500: #ff5e00;
+$accent-600: #cc4b00;
+$accent-700: #993800;
+$accent-50-old: #fbeef4;
+$accent-100-old: #f7dee8;
+$accent-500-old: #d8598c;
+$accent-600-old: #ad4770;
+$accent-700-old: #823554;
+$text-primary: #2f2227;
+$text-primary-invert: #fff;
+$text-secondary: rgba(47, 34, 39, 0.8);
+$text-secondary-invert: rgba(255, 255, 255, 0.72);
+$text-third: rgba(47, 34, 39, 0.56);
+$success-50: #e9f8ef;
+$success-100: #d4f1de;
+$success-600: #1b823f;
+
+$link-50: #e6f0f8;
+$link-100: #cce1f1;
+$link-300: #76a6f0;
+$link-500: #1a6be6;
+$link-600: #1556b8;
+$link-300-old: #66a6d4;
+$link-500-old: #006bb8;
+$link-600-old: #005693;
+$success-500: #26ba5a;
+$error-50: #fee;
+$error-100: #ffddde;
+$error-500: #ff5459;
+$error-600: #cc4347;
+$attention-500: #ffd43a;
+$attention-600: #ccaa2e;
+$pink: #e37ab2;
+$pastel-pink: #f1c2d2;
+$purple: #9d6099;
+$purple-dark: #5c4b75;

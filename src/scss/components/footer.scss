@@ -1,0 +1,95 @@
+@use '../vars.scss';
+
+.footer {
+    display: none;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background-color: vars.$background-primary;
+    border-top: 1px solid vars.$darkner-16;
+    padding: 0 24px;
+    align-items: center;
+
+    @include vars.tablet {
+        display: flex;
+    }
+
+    @include vars.mobile {
+        height: 76px;
+        padding: 0 16px;
+    }
+
+    &__nav-list {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+}
+
+.footer-nav-element {
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+        gap: 8px;
+        height: 52px;
+        padding: 0 12px;
+        border-radius: 2px;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 28px;
+        color: vars.$text-primary;
+        transition: background-color 0.2s;
+
+        @include vars.mobile {
+            gap: 4px;
+            height: 60px;
+            flex-direction: column;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 16px;
+        }
+
+        &_active {
+            background-color: vars.$darkner-8;
+
+            @include vars.mobile {
+                background-color: transparent;
+                color: vars.$accent-600;
+
+                .footer-nav-element {
+                    color: vars.$accent-600;
+                }
+            }
+        }
+
+        &:hover:not(.footer-nav-element__link_active) {
+            background-color: vars.$darkner-4;
+            color: vars.$accent-500;
+        }
+
+        &:active:not(.footer-nav-element__link_active) {
+            background-color: vars.$accent-700;
+            color: vars.$text-primary-invert;
+
+            .footer-nav-element__icon {
+                color: vars.$text-primary-invert;
+            }
+        }
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+    }
+}

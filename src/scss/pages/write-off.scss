@@ -1,0 +1,18 @@
+@use '../vars.scss';
+
+.write-off {
+    &__filters {
+        display: grid;
+        grid-template-columns: 244px 320px;
+        gap: 4px;
+
+        @include vars.mobile {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    &__filters-select {
+        max-width: 244px;
+    }
+}

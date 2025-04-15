@@ -1,0 +1,17 @@
+include ../icons/icon-cross.pug
+include ../components/button.pug
+include ../components/text-area.pug
+
+mixin popup-success()
+    .popup-support.hidden.js-popup-success
+        .popup-support__box
+            .popup-support__header
+                .popup-support__title
+                    .popup-support__title-text Ваше сообщение отправлено
+                    .popup-support__title-content Возможно ответ на свой вопрос вы найдете на странице 
+                        a(href='#') Вопросы и ответы
+                button.button-icon.popup-support__button-close.js-close-popup(type="button")
+                    +icon-cross('popup-support__icon-close')
+            .popup-support__text В ближайшее время мы свяжемся с вами
+            .popup-support__controls
+                +button({text: 'Закрыть', theme: 'secondary', className: 'js-close-popup'})

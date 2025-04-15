@@ -1,0 +1,20 @@
+include ../icons/icon-cross.pug
+include ../components/button.pug
+include ../components/text-area.pug
+
+mixin popup-support()
+    .popup-support.hidden.js-popup-support
+        .popup-support__box
+            .popup-support__header
+                .popup-support__title
+                    .popup-support__title-text Остались вопросы? Напишите нам
+                    .popup-support__title-content Возможно ответ на свой вопрос вы найдете на странице 
+                        a(href='#') Вопросы и ответы
+                button.button-icon.popup-support__button-close.js-close-popup(type="button")
+                    +icon-cross('popup-support__icon-close')
+            .popup-support__content
+                form.popup-support__form(action="#")
+                    +text-area({label: 'Текст сообщения', className: 'popup-support__text-area'})
+                    .popup-support__controls
+                        +button({text: 'Отмена', theme: 'secondary', className: 'js-close-popup'})
+                        +button({text: 'Отправить', className: 'js-success-popup-button'})

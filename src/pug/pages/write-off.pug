@@ -1,0 +1,116 @@
+extends ../layout.pug
+
+block variables
+  - var page = 'write-off'
+
+block content
+    include ../components/select.pug
+    include ../icons/icon-chevron-left.pug
+    include ../icons/icon-coin.pug
+
+    main.main
+        .content
+            .content-title
+                .content-title__title-wrapper
+                    h1.content-title__title Списания
+            .write-off__filters
+                +select({placeholder: 'Дата', elements: [{value: 'value1', text: 'Последние 7 дней'},{value: 'value2', text: 'Последние 30 дней'},{value: 'value3', text: 'В этом месяце'},{value: 'value4', text: 'В прошлом месяце'},{value: 'value5', text: 'Период'}], className: 'write-off__filters-select'})
+                +select({placeholder: 'Партнеры', elements: [{value: 'value1', text: 'Все клиенты', selected: true },{value: 'value2', text: 'Dropdown item'},{value: 'value3', text: 'Dropdown item'},{value: 'value4', text: 'Dropdown item'},{value: 'value5', text: 'Dropdown item'}]})
+            .table.table_write-off
+                .table__head
+                    .table__cell-h Дата
+                    .table__cell-h ID
+                    .table__cell-h Название
+                    .table__cell-h.table__cell-h_right Beautycoins
+                    .table__cell-h Покупка
+                .table__row
+                    .table__cell 30.09.2025
+                    .table__cell
+                        span.table__mobile-content ID: 
+                        span 0000 0000 0000 0000
+                    .table__cell.table__cell_compact
+                        .table__partner
+                            img(src='img/logo-royal-barber.png')
+                            span The Royal barbershop
+                    .table__cell.table__cell_right
+                        .table__sum 6&nbsp;000
+                            +icon-coin('table__sum-icon')
+                    .table__cell Оплата 50% модуля «ККТ + Эквайринг»
+                .table__row
+                    .table__cell 30.09.2025
+                    .table__cell
+                        span.table__mobile-content ID: 
+                        span 0000 0000 0000 0000
+                    .table__cell.table__cell_compact
+                        .table__partner
+                            img(src='img/logo-abzu.png')
+                            span ABZЫ Barbershop
+                    .table__cell.table__cell_right
+                        .table__sum 3&nbsp;000
+                            +icon-coin('table__sum-icon')
+                    .table__cell Оплата 50% модуля «Эквайринг»
+                .table__row
+                    .table__cell 30.09.2025
+                    .table__cell
+                        span.table__mobile-content ID: 
+                        span 0000 0000 0000 0000
+                    .table__cell.table__cell_compact
+                        .table__partner
+                            img(src='img/logo-anna-key.png')
+                            span Anna Key
+                    .table__cell.table__cell_right
+                        .table__sum 22&nbsp;500
+                            +icon-coin('table__sum-icon')
+                    .table__cell Оплата 50% модуля «Мобильное приложение»
+                .table__row
+                    .table__cell 30.09.2025
+                    .table__cell
+                        span.table__mobile-content ID: 
+                        span 0000 0000 0000 0000
+                    .table__cell.table__cell_compact
+                        .table__partner
+                            img(src='img/logo-cherry.png')
+                            span Вишня
+                    .table__cell.table__cell_right
+                        .table__sum 3&nbsp;000
+                            +icon-coin('table__sum-icon')
+                    .table__cell Оплата 50% модуля «Сертификаты»
+                .table__row
+                    .table__cell 30.09.2025
+                    .table__cell
+                        span.table__mobile-content ID: 
+                        span 0000 0000 0000 0000
+                    .table__cell.table__cell_compact
+                        .table__partner
+                            img(src='img/logo-roden.png')
+                            span Роден Тверь
+                    .table__cell.table__cell_right
+                        .table__sum 6&nbsp;000
+                            +icon-coin('table__sum-icon')
+                    .table__cell Оплата 50% модуля «Предоплата»
+                .table__row
+                    .table__cell 30.09.2025
+                    .table__cell
+                        span.table__mobile-content ID: 
+                        span 0000 0000 0000 0000
+                    .table__cell.table__cell_compact
+                        .table__partner
+                            img(src='img/logo-black-bone.png')
+                            span Чёрная кость
+                    .table__cell.table__cell_right
+                        .table__sum 6&nbsp;000
+                            +icon-coin('table__sum-icon')
+                    .table__cell Оплата 50% модуля «ККТ + Эквайринг»
+
+            .pagination
+                button.pagination__button.pagination__button_left.pagination__button_disabled(type='button')
+                    +icon-chevron-left('pagination__icon')
+                button.pagination__button(type='button') 1
+                button.pagination__button.pagination__button_active(type='button') 2
+                button.pagination__button.pagination__button_desktop(type='button') 3
+                button.pagination__button.pagination__button_desktop(type='button') 4
+                button.pagination__button.pagination__button_desktop(type='button') 5
+                button.pagination__button.pagination__button_disabled(type='button') ...
+                button.pagination__button(type='button') 6
+                button.pagination__button.pagination__button_right(type='button')
+                    +icon-chevron-left('pagination__icon pagination__icon_right')

@@ -1,0 +1,18 @@
+include ../icons/icon-cross.pug
+
+mixin text-input({label, alert, placeholder, value, className, subText, forceAlert})
+    - var inputForceClass = forceAlert ? 'text-input__input_force-alert' : ''
+
+    .text-input.js-input-node(class=className)
+        if label
+            .text-input__label= label
+        .text-input__input-wrapper
+            input.text-input__input.js-input(class=inputForceClass type="text" placeholder=placeholder value=value)
+            button.text-input__reset.js-input-reset(type="button")
+                +icon-cross('text-input__icon')
+        if alert
+            .text-input__alert.js-input-alert= alert
+        if subText
+            .text-input__sub-text= subText
+        if forceAlert
+            .text-input__force-alert= forceAlert

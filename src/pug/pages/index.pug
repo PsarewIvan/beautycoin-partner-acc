@@ -1,0 +1,112 @@
+extends ../layout.pug
+
+block variables
+  - var page = 'index'
+
+block content
+    include ../components/text-input.pug
+    include ../icons/icon-chevron-left.pug
+
+    main.main
+        .content
+            .content-title
+                .content-title__title-wrapper
+                    h1.content-title__title Клиенты
+            +text-input({placeholder: 'Поиск по названию или ID клиента', className: 'filters__input'})
+            .table.table_index
+                .table__head
+                    .table__cell-h ID
+                    .table__cell-h Название
+                    .table__cell-h Подключён
+                    .table__cell-h
+                .table__row
+                    .table__cell
+                        span.table__mobile-content ID: 
+                        span 0000 0000 0000 0000
+                    .table__cell.table__cell_compact
+                        .table__partner
+                            img(src='img/logo-royal-barber.png')
+                            span The Royal barbershop
+                    .table__cell
+                        span.table__mobile-content , с 
+                        span 30.09.2025
+                    .table__cell
+                        a.table__link(href="#") Списания
+                .table__row
+                    .table__cell
+                        span.table__mobile-content ID: 
+                        span 0000 0000 0000 0000
+                    .table__cell.table__cell_compact
+                        .table__partner
+                            img(src='img/logo-abzu.png')
+                            span ABZЫ Barbershop
+                    .table__cell
+                        span.table__mobile-content , с 
+                        span 30.09.2025
+                    .table__cell
+                        a.table__link(href="#") Списания
+                .table__row
+                    .table__cell
+                        span.table__mobile-content ID: 
+                        span 0000 0000 0000 0000
+                    .table__cell.table__cell_compact
+                        .table__partner
+                            img(src='img/logo-anna-key.png')
+                            span Anna Key
+                    .table__cell
+                        span.table__mobile-content , с 
+                        span 30.09.2025
+                    .table__cell
+                        a.table__link(href="#") Списания
+                .table__row
+                    .table__cell
+                        span.table__mobile-content ID: 
+                        span 0000 0000 0000 0000
+                    .table__cell.table__cell_compact
+                        .table__partner
+                            img(src='img/logo-cherry.png')
+                            span Вишня
+                    .table__cell
+                        span.table__mobile-content , с 
+                        span 30.09.2025
+                    .table__cell
+                        a.table__link(href="#") Списания
+                .table__row
+                    .table__cell
+                        span.table__mobile-content ID: 
+                        span 0000 0000 0000 0000
+                    .table__cell.table__cell_compact
+                        .table__partner
+                            img(src='img/logo-roden.png')
+                            span Роден Тверь
+                    .table__cell
+                        span.table__mobile-content , с 
+                        span 30.09.2025
+                    .table__cell
+                        a.table__link(href="#") Списания
+                .table__row
+                    .table__cell
+                        span.table__mobile-content ID: 
+                        span 0000 0000 0000 0000
+                    .table__cell.table__cell_compact
+                        .table__partner
+                            img(src='img/logo-black-bone.png')
+                            span Чёрная кость
+                    .table__cell
+                        span.table__mobile-content , с 
+                        span 30.09.2025
+                    .table__cell
+                        a.table__link(href="#") Списания
+
+            .pagination
+                button.pagination__button.pagination__button_left.pagination__button_disabled(type='button')
+                    +icon-chevron-left('pagination__icon')
+                button.pagination__button(type='button') 1
+                button.pagination__button.pagination__button_active(type='button') 2
+                button.pagination__button.pagination__button_desktop(type='button') 3
+                button.pagination__button.pagination__button_desktop(type='button') 4
+                button.pagination__button.pagination__button_desktop(type='button') 5
+                button.pagination__button.pagination__button_disabled(type='button') ...
+                button.pagination__button(type='button') 6
+                button.pagination__button.pagination__button_right(type='button')
+                    +icon-chevron-left('pagination__icon pagination__icon_right')

@@ -1,0 +1,177 @@
+@use '../vars.scss';
+
+.select-component-wrapper {
+    position: relative;
+
+    .select-component {
+        position: relative;
+        min-width: 124px;
+        padding: 0 42px 0 14px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        border-radius: 2px;
+        border: 2px solid vars.$darkner-16;
+        background: vars.$background-primary;
+        transition: border-color 0.2s;
+
+        &:hover {
+            border-color: vars.$darkner-24;
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        &_selected {
+            border-bottom-color: vars.$text-primary;
+            background-color: vars.$text-primary;
+
+            .ss-values {
+                color: vars.$text-primary-invert !important;
+            }
+
+            & ~ .select-component__reset {
+                color: vars.$text-secondary-invert;
+            }
+
+            .select-component__label {
+                // color: #006fbc;
+            }
+
+            .ss-arrow {
+                // display: none;
+            }
+        }
+
+        &.ss-disabled {
+            border-color: transparent;
+            background-color: vars.$darkner-4;
+
+            .ss-values {
+                color: vars.$text-secondary;
+            }
+
+            .ss-arrow {
+                path {
+                    fill: vars.$text-secondary;
+                }
+            }
+        }
+
+        &__label {
+            margin-bottom: 4px;
+            color: vars.$text-secondary;
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        &__reset {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 34px;
+            top: 5px;
+            right: 12px;
+            padding: 0;
+            border: none;
+            cursor: pointer;
+            background-color: transparent;
+        }
+
+        &__reset-icon {
+            width: 16px;
+            height: 16px;
+            fill: #8f8f8f;
+        }
+
+        .ss-values {
+            color: #1f1f1f;
+            font-size: 14px;
+            line-height: 20px;
+
+            .ss-placeholder,
+            .ss-single {
+                padding: 0;
+                margin: 0;
+                font-size: 16px;
+                line-height: 24px;
+            }
+        }
+    }
+
+    .ss-open-below {
+        border-color: vars.$link-300;
+        border-radius: 2px 2px 0 0;
+
+        &:hover {
+            border-color: vars.$link-300;
+        }
+    }
+
+    .ss-arrow {
+        position: absolute;
+        right: 12px;
+        width: 16px;
+        height: 16px;
+        margin: 0;
+
+        path {
+            stroke: none;
+            fill: vars.$text-primary;
+        }
+    }
+}
+
+.ss-content {
+    margin-top: 0 !important;
+    border-radius: 2px;
+    border-bottom-right-radius: 2px !important;
+    border-bottom-left-radius: 2px !important;
+    background: vars.$background-primary;
+    box-shadow: 0px 16px 24px 0px rgba(0, 0, 0, 0.06),
+        0px 2px 6px 0px rgba(0, 0, 0, 0.04), 0px 0px 1px 0px rgba(0, 0, 0, 0.04);
+
+    .ss-list {
+        // padding: 8px;
+    }
+
+    .ss-option:not(.ss-hide) {
+        display: block !important;
+        border-radius: 2px;
+        padding: 14px 16px !important;
+        color: vars.$text-primary !important;
+        font-size: 14px;
+        line-height: 20px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        &:hover {
+            background-color: vars.$link-50 !important;
+        }
+
+        &.ss-selected {
+            background-color: vars.$link-50 !important;
+        }
+    }
+
+    .ss-list {
+        &::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            border: 2px solid vars.$darkner-16;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: vars.$background-primary;
+            border-radius: 10px;
+        }
+    }
+}

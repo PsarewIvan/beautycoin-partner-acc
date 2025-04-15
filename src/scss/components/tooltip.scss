@@ -1,0 +1,61 @@
+@use '../vars.scss';
+
+.tooltip {
+    position: absolute;
+    top: -50%;
+    left: 0;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    z-index: 900;
+    width: max-content;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background-color: vars.$text-third;
+    font-size: 14px;
+    line-height: 20px;
+    color: vars.$text-primary-invert;
+    opacity: 0;
+
+    &__arrow {
+        position: absolute;
+        left: 14px;
+        bottom: -6px;
+        width: 12px;
+        height: 6px;
+        color: vars.$text-third;
+    }
+}
+
+.tooltip.tooltip_left {
+    left: auto;
+    right: 0;
+
+    .tooltip__arrow {
+        left: auto;
+        right: 14px;
+    }
+}
+
+.tooltip.tooltip_bottom {
+    top: auto;
+    bottom: 0;
+    transform: translateY(calc(100%));
+
+    .tooltip__arrow {
+        transform: rotate(180deg);
+        bottom: auto;
+        top: -6px;
+    }
+}
+
+.tooltip-trigger {
+    position: relative;
+}
+
+.tooltip-trigger:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}

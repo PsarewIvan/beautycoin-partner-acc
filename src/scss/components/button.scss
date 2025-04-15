@@ -1,0 +1,60 @@
+@use '../vars.scss';
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 30px;
+    margin: 0;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 2px;
+    font-family: vars.$second-font;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &.primary {
+        border-color: vars.$accent-500;
+        background-color: vars.$accent-500;
+        color: vars.$text-primary-invert;
+
+        &:hover:not(:disabled) {
+            border-color: vars.$accent-600;
+            background-color: vars.$accent-600;
+        }
+
+        &:active:not(:disabled) {
+            border-color: vars.$accent-700;
+            background-color: vars.$accent-700;
+        }
+
+        &:disabled {
+            opacity: 0.48;
+        }
+    }
+
+    &.secondary {
+        background-color: transparent;
+        border-color: vars.$accent-500;
+        color: vars.$text-primary;
+
+        &:hover:not(:disabled) {
+            border-color: vars.$accent-600;
+            background-color: vars.$darkner-4;
+        }
+
+        &:active:not(:disabled) {
+            border-color: vars.$accent-700;
+            background-color: vars.$accent-700;
+            color: vars.$text-primary-invert;
+        }
+
+        &:disabled {
+            opacity: 0.48;
+        }
+    }
+}

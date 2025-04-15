@@ -1,0 +1,29 @@
+@use '../vars.scss';
+
+.button-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 2px;
+    background-color: transparent;
+    color: vars.$text-primary;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        background-color: vars.$darkner-4;
+        color: vars.$accent-500;
+    }
+
+    &:active {
+        background-color: vars.$accent-700;
+        color: vars.$text-primary-invert;
+    }
+}

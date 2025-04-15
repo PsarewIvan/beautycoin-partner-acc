@@ -1,0 +1,49 @@
+@use '../vars.scss';
+
+.button-modal {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 32px 16px 24px;
+    border: none;
+    border-radius: 28px 28px 0 28px;
+    background-color: vars.$link-500;
+    color: vars.$text-primary-invert;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    @include vars.tablet {
+        right: 24px;
+        bottom: 104px;
+    }
+
+    @include vars.mobile {
+        right: 16px;
+        bottom: 92px;
+        padding: 16px 24px;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: vars.$link-600;
+        outline: none;
+    }
+
+    &__icon {
+        width: 24px;
+        height: 24px;
+        color: vars.$text-secondary-invert;
+    }
+
+    &__text {
+        @include vars.mobile {
+            display: none;
+        }
+    }
+}

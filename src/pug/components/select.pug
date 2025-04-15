@@ -1,0 +1,20 @@
+include ../icons/icon-cross.pug
+
+mixin select({elements, placeholder, label, className,classNameWrapper, hasReset=true, disabled})
+    .select-component-wrapper.js-select-component-wrapper(class=classNameWrapper)
+        if label
+            .select-component__label= label
+        if disabled
+            select.select-component.js-select-component(class=className data-placeholder=placeholder disabled="true")
+                each element in elements
+                    option.select-component__option(value=element.value selected=element.selected)= element.text
+        if !disabled
+            select.select-component.js-select-component(class=className data-placeholder=placeholder)
+                each element in elements
+                    if element.selected
+                        option.select-component__option(value=element.value data-selected='true')= element.text
+                    else
+                        option.select-component__option(value=element.value)= element.text
+        if hasReset
+            button.select-component__reset.hidden.js-select-reset(type='button')
+                +icon-cross('select-component__reset-icon')
