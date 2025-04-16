@@ -30,6 +30,41 @@
         }
     }
 
+    &__sort-button {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 0;
+        margin: 0;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+        color: vars.$text-primary;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:hover {
+            color: vars.$accent-500;
+        }
+
+        &.asc {
+            .table__sort-button-icon {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &__sort-button-icon {
+        width: 15px;
+        height: 24px;
+        color: vars.$text-primary;
+    }
+
     &__row {
         display: contents;
         padding: 16px 0;

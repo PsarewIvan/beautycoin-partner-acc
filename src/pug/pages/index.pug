@@ -6,18 +6,23 @@ block variables
 block content
     include ../components/text-input.pug
     include ../icons/icon-chevron-left.pug
+    include ../icons/icon-arrow-sort.pug
 
     main.main
         .content
             .content-title
                 .content-title__title-wrapper
                     h1.content-title__title Клиенты
-            +text-input({placeholder: 'Поиск по названию или ID клиента', className: 'filters__input'})
+            +text-input({placeholder: 'Поиск по названию или ID клиента', className: 'filters__input', hasIcon: true})
             .table.table_index
                 .table__head
                     .table__cell-h ID
-                    .table__cell-h Название
-                    .table__cell-h Подключён
+                    .table__cell-h 
+                        button.table__sort-button.asc(type="button") Название
+                            +icon-arrow-sort('table__sort-button-icon')
+                    .table__cell-h 
+                        button.table__sort-button(type="button") Подключён
+                            +icon-arrow-sort('table__sort-button-icon')
                     .table__cell-h
                 .table__row
                     .table__cell
