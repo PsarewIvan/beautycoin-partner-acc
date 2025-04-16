@@ -44,8 +44,13 @@
           </div>
         </div>
         <div class="write-off__filters">
-              <div class="select-component-wrapper js-select-component-wrapper">
+              <div class="select-component-wrapper js-select-component-wrapper" data-placeholder="ID или название" data-search-text="Ничего не найдено">
                 <select class="select-component js-select-component write-off__filters-select" data-placeholder="Дата">
+                  <option class="select-component__option" value="value1">Последние 7 дней</option>
+                  <option class="select-component__option" value="value2">Последние 30 дней</option>
+                  <option class="select-component__option" value="value3">В этом месяце</option>
+                  <option class="select-component__option" value="value4">В прошлом месяце</option>
+                  <option class="select-component__option" value="value5">Период</option>
                   <option class="select-component__option" value="value1">Последние 7 дней</option>
                   <option class="select-component__option" value="value2">Последние 30 дней</option>
                   <option class="select-component__option" value="value3">В этом месяце</option>
@@ -75,8 +80,20 @@
         </div>
         <div class="table table_write-off">
           <div class="table__head">
-            <div class="table__cell-h">Дата</div>
-            <div class="table__cell-h">ID</div>
+            <div class="table__cell-h">
+              <button class="table__sort-button asc" type="button">Дата
+                    <svg class="table__sort-button-icon" fill="none" height="24" viewBox="0 0 15 24" width="15">
+                      <path d="m3.96932 8.03063c-.06973-.06966-.12505-.15238-.16279-.24343-.03774-.09104-.05717-.18864-.05717-.2872s.01943-.19616.05717-.28721c.03774-.09104.09306-.17376.16279-.24342l3-2.99999c.06966-.06974.15238-.12506.24342-.1628.09105-.03774.18865-.05717.28721-.05717s.19616.01943.2872.05717c.09105.03774.17377.09306.24342.1628l3.00003 2.99999c.0697.06969.1249.15241.1626.24346.0378.09104.0572.18862.0572.28717s-.0194.19613-.0572.28717c-.0377.09105-.0929.17377-.1626.24346-.1408.14073-.3316.21979-.5307.21979-.0985 0-.1961-.01941-.2871-.05713-.0911-.03771-.1738-.09298-.24348-.16266l-1.71937-1.72032v13.18969c0 .1989-.07902.3897-.21967.5303-.14065.1407-.33142.2197-.53033.2197s-.38968-.079-.53033-.2197c-.14065-.1406-.21967-.3314-.21967-.5303v-13.18969l-1.71938 1.72032c-.06965.06973-.15237.12505-.24342.16279-.09104.03774-.18864.05717-.2872.05717s-.19616-.01943-.28721-.05717c-.09104-.03774-.17376-.09306-.24342-.16279z" fill="currentColor"></path>
+                    </svg>
+              </button>
+            </div>
+            <div class="table__cell-h">
+              <button class="table__sort-button" type="button">ID
+                    <svg class="table__sort-button-icon" fill="none" height="24" viewBox="0 0 15 24" width="15">
+                      <path d="m3.96932 8.03063c-.06973-.06966-.12505-.15238-.16279-.24343-.03774-.09104-.05717-.18864-.05717-.2872s.01943-.19616.05717-.28721c.03774-.09104.09306-.17376.16279-.24342l3-2.99999c.06966-.06974.15238-.12506.24342-.1628.09105-.03774.18865-.05717.28721-.05717s.19616.01943.2872.05717c.09105.03774.17377.09306.24342.1628l3.00003 2.99999c.0697.06969.1249.15241.1626.24346.0378.09104.0572.18862.0572.28717s-.0194.19613-.0572.28717c-.0377.09105-.0929.17377-.1626.24346-.1408.14073-.3316.21979-.5307.21979-.0985 0-.1961-.01941-.2871-.05713-.0911-.03771-.1738-.09298-.24348-.16266l-1.71937-1.72032v13.18969c0 .1989-.07902.3897-.21967.5303-.14065.1407-.33142.2197-.53033.2197s-.38968-.079-.53033-.2197c-.14065-.1406-.21967-.3314-.21967-.5303v-13.18969l-1.71938 1.72032c-.06965.06973-.15237.12505-.24342.16279-.09104.03774-.18864.05717-.2872.05717s-.19616-.01943-.28721-.05717c-.09104-.03774-.17376-.09306-.24342-.16279z" fill="currentColor"></path>
+                    </svg>
+              </button>
+            </div>
             <div class="table__cell-h">Название</div>
             <div class="table__cell-h table__cell-h_right">Beautycoins</div>
             <div class="table__cell-h">Покупка</div>

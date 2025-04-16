@@ -7,6 +7,7 @@ block content
     include ../components/select.pug
     include ../icons/icon-chevron-left.pug
     include ../icons/icon-coin.pug
+    include ../icons/icon-arrow-sort.pug
 
     main.main
         .content
@@ -14,12 +15,16 @@ block content
                 .content-title__title-wrapper
                     h1.content-title__title Списания
             .write-off__filters
-                +select({placeholder: 'Дата', elements: [{value: 'value1', text: 'Последние 7 дней'},{value: 'value2', text: 'Последние 30 дней'},{value: 'value3', text: 'В этом месяце'},{value: 'value4', text: 'В прошлом месяце'},{value: 'value5', text: 'Период'}], className: 'write-off__filters-select'})
+                +select({placeholder: 'Дата', searchPlaceholder: 'ID или название', searchText: 'Ничего не найдено', elements: [{value: 'value1', text: 'Последние 7 дней'},{value: 'value2', text: 'Последние 30 дней'},{value: 'value3', text: 'В этом месяце'},{value: 'value4', text: 'В прошлом месяце'},{value: 'value5', text: 'Период'},{value: 'value1', text: 'Последние 7 дней'},{value: 'value2', text: 'Последние 30 дней'},{value: 'value3', text: 'В этом месяце'},{value: 'value4', text: 'В прошлом месяце'},{value: 'value5', text: 'Период'}], className: 'write-off__filters-select'})
                 +select({placeholder: 'Партнеры', elements: [{value: 'value1', text: 'Все клиенты', selected: true },{value: 'value2', text: 'Dropdown item'},{value: 'value3', text: 'Dropdown item'},{value: 'value4', text: 'Dropdown item'},{value: 'value5', text: 'Dropdown item'}]})
             .table.table_write-off
                 .table__head
-                    .table__cell-h Дата
-                    .table__cell-h ID
+                    .table__cell-h
+                        button.table__sort-button.asc(type="button") Дата
+                            +icon-arrow-sort('table__sort-button-icon')
+                    .table__cell-h
+                        button.table__sort-button(type="button") ID
+                            +icon-arrow-sort('table__sort-button-icon')
                     .table__cell-h Название
                     .table__cell-h.table__cell-h_right Beautycoins
                     .table__cell-h Покупка

@@ -173,10 +173,15 @@
             selected: option.dataset.selected === 'true',
         }));
 
+        const searchPlaceholder = selectWrapper.dataset.placeholder;
+        const searchText = selectWrapper.dataset.searchText;
+
         const slimSelect = new SlimSelect({
             select,
             settings: {
-                showSearch: false,
+                showSearch: Boolean(searchPlaceholder),
+                searchPlaceholder,
+                searchText,
             },
             data: [
                 ...(placeholder

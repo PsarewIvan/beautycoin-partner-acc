@@ -128,6 +128,7 @@
 
 .ss-content {
     margin-top: 0 !important;
+    padding: 4px;
     border-radius: 2px;
     border-bottom-right-radius: 2px !important;
     border-bottom-left-radius: 2px !important;
@@ -135,8 +136,51 @@
     box-shadow: 0px 16px 24px 0px rgba(0, 0, 0, 0.06),
         0px 2px 6px 0px rgba(0, 0, 0, 0.04), 0px 0px 1px 0px rgba(0, 0, 0, 0.04);
 
+    .ss-search {
+        margin-bottom: 4px;
+        padding: 0;
+
+        input {
+            height: 44px;
+            padding: 12px 21px 12px 40px;
+            border-radius: 0;
+            box-shadow: none;
+            border: none;
+            border-bottom: 2px solid vars.$darkner-16;
+            background-color: vars.$background-primary;
+            font-size: 14px;
+            line-height: 20px;
+            transition: all 0.2s;
+
+            &::placeholder {
+                color: vars.$text-third;
+            }
+
+            &:hover {
+                background-color: vars.$darkner-4;
+            }
+
+            &:focus {
+                outline: none;
+                border-color: vars.$link-500;
+                background-color: vars.$background-primary;
+                box-shadow: none;
+            }
+
+            &::-webkit-search-cancel-button {
+                display: none;
+            }
+        }
+    }
+
     .ss-list {
-        // padding: 8px;
+        .ss-search {
+            font-size: 14px;
+            line-height: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
     }
 
     .ss-option:not(.ss-hide) {
