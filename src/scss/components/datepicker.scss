@@ -1,0 +1,270 @@
+@use '../vars.scss';
+
+.litepicker {
+    background-color: vars.$background-primary;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.16);
+
+    .container__months {
+        background-color: transparent;
+        border-radius: 0;
+        box-shadow: none;
+        border-left: 1px solid vars.$darkner-16;
+    }
+
+    .container__footer {
+        background-color: transparent;
+        box-shadow: none;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+.datepicker-wrapper {
+    position: relative;
+    display: inline-block;
+
+    &__input {
+        padding: 8px 12px;
+        font-size: 16px;
+        width: 220px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    .datepicker-wrapper__preset-list {
+        display: none;
+    }
+
+    &__preset-list {
+        // margin-top: 10px;
+        // background: #fff;
+        // border: 1px solid #ddd;
+        // border-radius: 6px;
+        // box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        // padding: 5px 0;
+        width: 163px;
+    }
+
+    &__preset-element {
+        padding: 8px 12px;
+        cursor: pointer;
+        transition: background 0.2s;
+
+        &:hover {
+            background: #f0f0f0;
+        }
+    }
+}
+
+// .datepicker-wrapper {
+//     display: flex;
+//     flex-direction: column;
+
+//     &__label {
+//         margin-bottom: 8px;
+//         // color: vars.$textLBGPrimary;
+//         font-size: 14px;
+//         font-weight: 400;
+//         line-height: 20px;
+//     }
+// }
+
+// .datepicker-component {
+//     position: relative;
+//     display: flex;
+//     align-items: center;
+//     height: 46px;
+//     border-radius: 8px;
+//     border: 1px solid #d6d6d6;
+//     background-color: #fff;
+//     transition: all 0.2s;
+
+//     &_selected {
+//         .datepicker-component__input {
+//             // color: vars.$textLBGPrimary;
+//         }
+//     }
+
+//     &:hover {
+//         // border-color: vars.$accent48;
+//     }
+
+//     &__before {
+//         position: absolute;
+//         left: 12px;
+//         top: 50%;
+//         transform: translateY(-50%);
+//         width: 16px;
+//         color: #5c5c5c;
+//         font-size: 14px;
+//         line-height: 20px;
+//         pointer-events: none;
+//     }
+
+//     &__input {
+//         width: 100%;
+//         min-height: 36px;
+//         padding: 0;
+//         padding-right: 16px;
+//         padding-left: 16px;
+//         border: none;
+//         background-color: transparent;
+//         color: #1f1f1f;
+//         font-size: 14px;
+//         line-height: 20px;
+//         text-align: left;
+
+//         appearance: none;
+//         -webkit-appearance: none;
+
+//         &::-webkit-calendar-picker-indicator {
+//             opacity: 0;
+//         }
+
+//         &:focus {
+//             outline: none;
+//             box-shadow: none !important;
+//         }
+
+//         @media (min-width: 724px) {
+//             padding-right: 48px;
+//         }
+//     }
+
+//     &__icon {
+//         position: absolute;
+//         top: 50%;
+//         transform: translateY(-50%);
+//         right: 8px;
+//         width: 24px;
+//         height: 24px;
+//         fill: #5c5c5c;
+//         pointer-events: none;
+//     }
+
+//     &__reset {
+//         display: none;
+//         position: absolute;
+//         top: 50%;
+//         transform: translateY(-50%);
+//         right: 8px;
+//         width: 24px;
+//         height: 24px;
+//         align-items: center;
+//         justify-content: center;
+//         padding: 0;
+//         border: none;
+//         background-color: transparent;
+//         cursor: pointer;
+
+//         @media (min-width: 724px) {
+//             display: flex;
+//         }
+//     }
+
+//     &__reset-icon {
+//         width: 16px;
+//         height: 16px;
+//         fill: #8f8f8f;
+//     }
+
+//     &__after {
+//         margin-top: 4px;
+//         // color: vars.$textLBGSecondary;
+//         // font-family: vars.$sfProDisplay;
+//         font-size: 14px;
+//         line-height: 20px;
+//     }
+
+//     .datepicker {
+//         .datepicker-picker {
+//             padding: 16px;
+//             border-radius: 8px;
+//             background: #fff;
+//             box-shadow: 0px 16px 24px 0px rgba(0, 0, 0, 0.06),
+//                 0px 2px 6px 0px rgba(0, 0, 0, 0.04),
+//                 0px 0px 1px 0px rgba(0, 0, 0, 0.04);
+//         }
+
+//         .datepicker-controls {
+//             padding: 0;
+//             gap: 8px;
+
+//             .button {
+//                 flex-basis: 24px;
+//                 width: 24px;
+//                 height: 24px;
+//                 padding: 0;
+//                 // color: vars.$textLBGPrimary;
+//                 font-size: 14px;
+//                 font-weight: 600;
+//                 line-height: 20px;
+
+//                 &:hover {
+//                     background-color: transparent !important;
+//                     color: #0190db !important;
+//                 }
+
+//                 svg {
+//                     width: 24px;
+//                     height: 24px;
+//                 }
+//             }
+
+//             .next-button {
+//                 transform: rotate(180deg);
+//             }
+//         }
+
+//         .datepicker-view {
+//             width: 224px;
+//         }
+
+//         .datepicker-main {
+//             padding: 4px 0 0;
+
+//             .days-of-week {
+//                 padding: 4px 0;
+//             }
+
+//             .dow {
+//                 height: auto;
+//                 // color: vars.$textLBGSecondary;
+//                 font-size: 12px;
+//                 font-weight: 400;
+//                 line-height: 16px;
+//                 text-transform: lowercase;
+//             }
+
+//             .day {
+//                 height: 32px;
+//                 border-radius: 8px;
+//                 border: 1px solid transparent;
+//                 // color: vars.$textLBGPrimary;
+//                 font-size: 14px;
+//                 line-height: 20px;
+
+//                 &.prev,
+//                 &.next {
+//                     opacity: 0;
+//                     pointer-events: none;
+//                     cursor: default;
+//                 }
+
+//                 &.today {
+//                     background-color: transparent;
+//                     // border-color: vars.$accent48;
+//                     // color: vars.$accent600;
+//                 }
+
+//                 &.selected {
+//                     // border-color: vars.$accent500;
+//                     // background-color: vars.$accent500;
+//                     // color: vars.$textDBGPrimary;
+//                     font-weight: 400;
+//                 }
+//             }
+//         }
+//     }
+// }
