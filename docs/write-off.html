@@ -8,7 +8,6 @@
     <meta content="index,follow" name="robots">
     <title>Beautycoin partner account</title>
     <link rel="stylesheet" href="libs/slimselect.css">
-    <link rel="stylesheet" href="libs/datepicker.css">
     <link rel="stylesheet" href="libs/litepicker.css">
     <link rel="stylesheet" href="css/index.css">
   </head>
@@ -46,27 +45,38 @@
           </div>
         </div>
         <div class="write-off__filters">
-          <div class="datepicker-wrapper">
-            <input class="datepicker-wrapper__input js-datepicker" type="text" readonly>
-            <div class="datepicker-wrapper__preset-list js-datepicker-preset-list">
-              <div class="datepicker-wrapper__preset-element" data-range="7">Последние 7 дней</div>
-              <div class="datepicker-wrapper__preset-element" data-range="30">Последние 30 дней</div>
-              <div class="datepicker-wrapper__preset-element" data-range="this-month">В этом месяце</div>
-              <div class="datepicker-wrapper__preset-element" data-range="last-month">В прошлом месяце</div>
+          <div class="text-input custom-datepicker">
+            <input class="text-input__input custom-datepicker__input js-datepicker" type="text" placeholder="Дата" readonly>
+            <div class="custom-datepicker__preset-list js-datepicker-preset-list">
+              <div class="custom-datepicker__preset-element" data-range="7">Последние 7 дней</div>
+              <div class="custom-datepicker__preset-element" data-range="30">Последние 30 дней</div>
+              <div class="custom-datepicker__preset-element" data-range="this-month">В этом месяце</div>
+              <div class="custom-datepicker__preset-element" data-range="last-month">В прошлом месяце</div>
+              <div class="custom-datepicker__preset-element" data-range="7">Последние 7 дней</div>
+              <div class="custom-datepicker__preset-element" data-range="30">Последние 30 дней</div>
+              <div class="custom-datepicker__preset-element" data-range="this-month">В этом месяце</div>
+              <div class="custom-datepicker__preset-element" data-range="last-month">В прошлом месяце</div>
+              <div class="custom-datepicker__preset-element" data-range="7">Последние 7 дней</div>
+              <div class="custom-datepicker__preset-element" data-range="30">Последние 30 дней</div>
+              <div class="custom-datepicker__preset-element" data-range="this-month">В этом месяце</div>
+              <div class="custom-datepicker__preset-element" data-range="last-month">В прошлом месяце</div>
+              <div class="custom-datepicker__preset-element" data-range="7">Последние 7 дней</div>
+              <div class="custom-datepicker__preset-element" data-range="30">Последние 30 дней</div>
+              <div class="custom-datepicker__preset-element" data-range="this-month">В этом месяце</div>
+              <div class="custom-datepicker__preset-element" data-range="last-month">В прошлом месяце</div>
             </div>
           </div>
               <div class="select-component-wrapper js-select-component-wrapper" data-placeholder="ID или название" data-search-text="Ничего не найдено">
-                <select class="select-component js-select-component write-off__filters-select" data-placeholder="Дата">
-                  <option class="select-component__option" value="value1">Последние 7 дней</option>
-                  <option class="select-component__option" value="value2">Последние 30 дней</option>
-                  <option class="select-component__option" value="value3">В этом месяце</option>
-                  <option class="select-component__option" value="value4">В прошлом месяце</option>
-                  <option class="select-component__option" value="value5">Период</option>
-                  <option class="select-component__option" value="value1">Последние 7 дней</option>
-                  <option class="select-component__option" value="value2">Последние 30 дней</option>
-                  <option class="select-component__option" value="value3">В этом месяце</option>
-                  <option class="select-component__option" value="value4">В прошлом месяце</option>
-                  <option class="select-component__option" value="value5">Период</option>
+                <select class="select-component js-select-component" data-placeholder="Партнеры">
+                  <option class="select-component__option" value="value1" data-selected="true">Все клиенты</option>
+                  <option class="select-component__option" value="value2">Dropdown item</option>
+                  <option class="select-component__option" value="value3">Dropdown item</option>
+                  <option class="select-component__option" value="value4">Dropdown item</option>
+                  <option class="select-component__option" value="value5">Dropdown item</option>
+                  <option class="select-component__option" value="value6">Dropdown item</option>
+                  <option class="select-component__option" value="value7">Dropdown item</option>
+                  <option class="select-component__option" value="value8">Dropdown item</option>
+                  <option class="select-component__option" value="value9">Dropdown item</option>
                 </select>
                 <button class="select-component__reset hidden js-select-reset" type="button">
                       <svg class="select-component__reset-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -285,7 +295,6 @@
     </footer>
   </body>
   <script src="libs/slimselect.js"></script>
-  <script src="libs/datepicker.js"></script>
   <script src="libs/litepicker.js"></script>
   <script src="libs/dayjs.min.js"></script>
   <script src="js/index.js"></script>
