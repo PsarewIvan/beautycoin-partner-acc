@@ -7,6 +7,17 @@
     --litepicker-month-width: calc(32px * 7);
     --litepicker-day-width: 32px;
 
+    @include vars.mobile {
+        left: 0 !important;
+        right: 0 !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        overflow: auto;
+
+        --litepicker-month-width: calc(46px * 7);
+        --litepicker-day-width: 46px;
+    }
+
     .container__main {
         display: flex;
         gap: 4px;
@@ -20,6 +31,10 @@
         background-color: transparent;
         border-radius: 0;
         box-shadow: none;
+
+        @include vars.mobile {
+            flex-direction: column;
+        }
 
         .month-item {
             display: flex;
@@ -142,6 +157,10 @@
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
 
+        @include vars.mobile {
+            padding: 16px 12px 12px;
+        }
+
         .button-cancel {
             display: none;
         }
@@ -175,6 +194,29 @@
         display: flex;
         gap: 4px;
         padding: 4px;
+
+        @include vars.mobile {
+            flex-direction: column;
+            padding: 24px 16px;
+        }
+    }
+
+    &__header {
+        display: none;
+
+        @include vars.mobile {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding-bottom: 16px;
+        }
+    }
+
+    &__header-text {
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 32px;
+        letter-spacing: -0.48px;
     }
 
     &__preset-list {
@@ -183,6 +225,11 @@
         width: 163px;
         display: flex;
         flex-direction: column;
+
+        @include vars.mobile {
+            width: 100%;
+            height: 176px;
+        }
     }
 
     &__preset-element {
@@ -207,6 +254,13 @@
         gap: 16px;
         padding: 12px 12px 12px 16px;
         border-left: 1px solid vars.$darkner-16;
+
+        @include vars.mobile {
+            flex-direction: column-reverse;
+            padding: 0 0 24px;
+            margin-top: 4px;
+            border-left: none;
+        }
     }
 
     .custom-datepicker__preset-list {
