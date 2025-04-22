@@ -7,7 +7,21 @@
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M19.281 18.2194C19.3507 18.289 19.406 18.3718 19.4437 18.4628C19.4814 18.5539 19.5008 18.6514 19.5008 18.75C19.5008 18.8485 19.4814 18.9461 19.4437 19.0372C19.406 19.1282 19.3507 19.2109 19.281 19.2806C19.2114 19.3503 19.1286 19.4056 19.0376 19.4433C18.9465 19.481 18.849 19.5004 18.7504 19.5004C18.6519 19.5004 18.5543 19.481 18.4632 19.4433C18.3722 19.4056 18.2895 19.3503 18.2198 19.2806L12.0004 13.0603L5.78104 19.2806C5.64031 19.4213 5.44944 19.5004 5.25042 19.5004C5.05139 19.5004 4.86052 19.4213 4.71979 19.2806C4.57906 19.1399 4.5 18.949 4.5 18.75C4.5 18.551 4.57906 18.3601 4.71979 18.2194L10.9401 12L4.71979 5.78061C4.57906 5.63988 4.5 5.44901 4.5 5.24999C4.5 5.05097 4.57906 4.8601 4.71979 4.71936C4.86052 4.57863 5.05139 4.49957 5.25042 4.49957C5.44944 4.49957 5.64031 4.57863 5.78104 4.71936L12.0004 10.9397L18.2198 4.71936C18.3605 4.57863 18.5514 4.49957 18.7504 4.49957C18.9494 4.49957 19.1403 4.57863 19.281 4.71936C19.4218 4.8601 19.5008 5.05097 19.5008 5.24999C19.5008 5.44901 19.4218 5.63988 19.281 5.78061L13.0607 12L19.281 18.2194Z" fill="currentColor"/>
     </svg>`;
 
+    function dispatchCalendarChange(input, event) {
+        const calendarChangeEvent = new CustomEvent('calendar-change', {
+            detail: {
+                originalEvent: event,
+                inputName: input.name || input.getAttribute('name') || null,
+            },
+        });
+
+        input.dispatchEvent(calendarChangeEvent);
+    }
+
     document.querySelectorAll('.js-datepicker').forEach((input) => {
+        let pickedStart = null;
+        let pickedEnd = null;
+
         const picker = new Litepicker({
             element: input,
             singleMode: false,
@@ -27,24 +41,103 @@
                 apply: 'Выбрать',
             },
             setup: (picker) => {
+                const enableApplyButtonManually = () => {
+                    const applyBtn = document.querySelector('.button-apply');
+
+                    if (applyBtn) {
+                        applyBtn.disabled = false;
+                    }
+                };
+
+                picker.on('render', () => {
+                    insertPresets(picker, input);
+                    replaceNavArrows(picker);
+                    updatePreviewAndButton(picker);
+                    enableApplyButtonManually();
+                });
                 picker.on('show', () => {
                     if (window.innerWidth < 768) {
                         document.body.classList.add('body-lock');
                     }
 
-                    insertPresets(picker);
+                    insertPresets(picker, input);
                     replaceNavArrows(picker);
-                });
-                picker.on('render', () => {
-                    insertPresets(picker);
-                    replaceNavArrows(picker);
+                    updatePreviewAndButton(picker);
                 });
                 picker.on('hide', () => {
                     document.body.classList.remove('body-lock');
                 });
+                picker.on('selected', (start, end) => {
+                    updatePreviewAndButton(picker);
+                });
+                picker.on('preselect', (date1, date2) => {
+                    pickedStart = date1 ? new Date(date1.dateInstance) : null;
+                    pickedEnd = date2 ? new Date(date2.dateInstance) : null;
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('button-apply')) {
+                        if (pickedStart && !pickedEnd) {
+                            picker.setDateRange(pickedStart, pickedStart);
+
+                            dispatchCalendarChange(input, {
+                                start: pickedStart,
+                                end: pickedStart,
+                            });
+                        } else if (pickedStart && pickedEnd) {
+                            picker.setDateRange(pickedStart, pickedEnd);
+
+                            dispatchCalendarChange(input, {
+                                start: pickedStart,
+                                end: pickedEnd,
+                            });
+                        }
+                        picker.hide();
+                    }
+                });
             },
         });
     });
+
+    function getPickedDates(picker) {
+        const dates = picker.datePicked || [];
+        const start = dates[0] ? new Date(dates[0].dateInstance) : null;
+        const end = dates[1] ? new Date(dates[1].dateInstance) : null;
+
+        return { start, end };
+    }
+
+    function formatDate(date) {
+        const d = new Date(date);
+
+        if (isNaN(d.getTime())) return '...';
+
+        return d.toLocaleDateString('ru-RU', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+        });
+    }
+
+    function updatePreviewAndButton(picker) {
+        const { start, end } = getPickedDates(picker);
+
+        const preview = document.querySelector('.preview-date-range');
+        const applyBtn = document.querySelector('.button-apply');
+
+        if (!start && !end) {
+            preview.textContent = 'Выберите начало и конец периода';
+            applyBtn.disabled = true;
+        } else if (start && !end) {
+            preview.textContent = `с ${formatDate(start)} по ...`;
+            applyBtn.disabled = false;
+        } else {
+            preview.textContent = `с ${formatDate(start)} по ${formatDate(
+                end
+            )}`;
+            applyBtn.disabled = false;
+        }
+    }
 
     function replaceNavArrows(picker) {
         const prevBtns = picker.ui.querySelectorAll('.button-previous-month');
@@ -66,7 +159,7 @@
         });
     }
 
-    function insertPresets(picker) {
+    function insertPresets(picker, input) {
         const { ui } = picker;
 
         if (ui.querySelector('.custom-datepicker__wrapper')) return;
@@ -112,7 +205,12 @@
         presetClone.querySelectorAll('div[data-range]').forEach((el) => {
             el.addEventListener('click', () => {
                 const type = el.getAttribute('data-range');
-                setPresetRange(type, picker);
+                const { start, end } = setPresetRange(type, picker);
+
+                dispatchCalendarChange(input, {
+                    start: start.toDate(),
+                    end: end.toDate(),
+                });
             });
         });
 
@@ -144,5 +242,7 @@
             end.format('YYYY-MM-DD')
         );
         picker.hide();
+
+        return { start, end };
     }
 })();

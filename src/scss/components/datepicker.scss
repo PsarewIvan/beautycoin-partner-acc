@@ -125,10 +125,30 @@
             cursor: pointer;
             border-radius: 2px;
             border: 1px solid transparent;
+            color: vars.$text-primary;
+
+            &.is-today {
+                border-color: vars.$link-500;
+                color: vars.$text-primary;
+
+                &:hover {
+                    border-color: vars.$link-500;
+                }
+            }
+
+            &.is-locked {
+                color: vars.$text-primary;
+                opacity: 0.24;
+
+                &:hover {
+                    color: vars.$text-primary;
+                }
+            }
 
             &:hover {
-                color: vars.$text-primary;
-                border-color: vars.$link-500;
+                color: vars.$link-500;
+                border-color: transparent;
+                background-color: vars.$darkner-4;
                 box-shadow: none;
             }
 
